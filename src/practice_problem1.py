@@ -40,10 +40,10 @@ def main():
     # UN-comment tests as you work the problems.
     ###########################################################################
 
-    run_test_init()
-    run_test_append_string()
+    # run_test_init()
+    # run_test_append_string()
     # run_test_double()
-    # run_test_shrink()
+    run_test_shrink()
     # run_test_double_then_shrink()
     # run_test_reset()
     # run_test_steal()
@@ -173,8 +173,9 @@ class Box(object):
         self.contents = self.contents + add_in
 
         leftovers = ''
-        for k in range(len(additional_contents) - space):
-            leftovers = leftovers + additional_contents[space + k]
+        if len(additional_contents) != space:
+            for k in range(len(additional_contents) - space):
+                leftovers = leftovers + additional_contents[space + k]
         return leftovers
 
     def double(self):
@@ -211,7 +212,7 @@ class Box(object):
           #                       contents that did NOT fit]
         """
         # ---------------------------------------------------------------------
-        # TODO: 4. Implement and test this function.
+        # DONE: 4. Implement and test this function.
         #     The testing code is already written for you (above).
         # ---------------------------------------------------------------------
         # ---------------------------------------------------------------------
@@ -223,6 +224,8 @@ class Box(object):
         # FOR FULL CREDIT, YOUR SOLUTION MUST BE NO MORE THAN
         #    ** TWO **   LINES OF CODE.
         #######################################################################
+        x = self.append_string(self.contents)
+        return x
 
     def shrink(self, new_volume):
         """
@@ -271,6 +274,19 @@ class Box(object):
         # IMPORTANT: Write a solution to this problem in pseudo-code,
         # and THEN translate the pseudo-code to a solution.
         # ---------------------------------------------------------------------
+        clipped_contents = ''
+        if new_volume < self.volume:
+            kept_contents = ''
+            if new_volume < len(self.contents):
+                for k in range(len(self.contents) - new_volume):
+                    clipped_contents = clipped_contents + self.contents[k + new_volume]
+                for k in range(new_volume):
+                    kept_contents = kept_contents + self.contents[k]
+                self.contents = kept_contents
+            else:
+                pass
+        self.volume = new_volume
+        return clipped_contents
 
     def double_then_shrink(self, new_volume):
         """
