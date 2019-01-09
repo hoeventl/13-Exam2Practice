@@ -44,7 +44,7 @@ def main():
 def run_test_practice_problem2a():
     """ Tests the   practice_problem2a  function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem2a  function defined below.
     #   Include at least **   4    ** tests that, taken together,
     #   would form a    ** REASONABLY GOOD test set **
@@ -58,6 +58,18 @@ def run_test_practice_problem2a():
     print('--------------------------------------------------')
     print('Testing the   practice_problem2a   function:')
     print('--------------------------------------------------')
+    print('Test One expected:', [4, 5, 6, 7, 8])
+    actual = practice_problem2a([1, 2, 3, 4, 5], 3)
+    print('     actual:', actual)
+    print('Test Two expected:', [0, 0, 5, 12, 17])
+    actual = practice_problem2a([-2, -2, 3, 10, 15], 2)
+    print('     actual:', actual)
+    print('Test Three expected:', [6, 18, 13, 12, 10])
+    actual = practice_problem2a([-4, 8, 3, 2, 0], 10)
+    print('     actual:', actual)
+    print('Test Four expected:', [27, -25, 2, 6, 7])
+    actual = practice_problem2a([22, -30, -3, 1, 2], 5)
+    print('     actual:', actual)
 
 
 def practice_problem2a(sequence, delta):
@@ -79,13 +91,17 @@ def practice_problem2a(sequence, delta):
       :type delta:    int
     """
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     WRITE THE TESTS FIRST (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   5 minutes.
     ###########################################################################
+    new = []
+    for k in range(len(sequence)):
+        new = new + [sequence[k] + delta]
+    return new
 
 
 def run_test_practice_problem2b():
