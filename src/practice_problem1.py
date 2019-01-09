@@ -41,7 +41,7 @@ def main():
     ###########################################################################
 
     # run_test_init()
-    # run_test_append_string()
+    run_test_append_string()
     # run_test_double()
     # run_test_shrink()
     # run_test_double_then_shrink()
