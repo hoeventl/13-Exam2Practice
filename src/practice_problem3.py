@@ -349,7 +349,7 @@ def practice_problem3b(sequence):
       :type: sequence: list    or tuple or string
     """
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPLEMENTATION REQUIREMENT:  You are NOT allowed to use the
@@ -361,11 +361,10 @@ def practice_problem3b(sequence):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes.
     ###########################################################################
-    for item in sequence:
-        if item is sequence[len(sequence) - 1]:
+
+    for k in range(len(sequence) - 1):
+        if sequence[k] == sequence[len(sequence) - 1]:
             return True
-        else:
-            pass
     return False
 
 
